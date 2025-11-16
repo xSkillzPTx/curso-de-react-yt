@@ -52,12 +52,13 @@ function App() {
     setTasks(newTasks);
   }
 
-  function onAddTaskSubmit(title, description) {
+  function onAddTaskSubmit(title, description, date) {
     // Lógica para adicionar uma nova tarefa
     const newTask = {
       id: v4,
       title,
       description,
+      date,
       isCompleted: false,
     };
     setTasks([...tasks, newTask]);

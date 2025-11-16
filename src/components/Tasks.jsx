@@ -9,6 +9,7 @@ function Tasks({ tasks, onTaskClick, onDeleteTaskClick }) {
     const query = new URLSearchParams();
     query.set("title", task.title);
     query.set("description", task.description);
+    query.set("date", task.date);
     navigate(`/task?${query.toString()}`);
   }
 

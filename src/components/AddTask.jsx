@@ -31,11 +31,8 @@ function AddTask({ onAddTaskSubmit }) {
 
       <button
         onClick={() => {
-          if (!title.trim() || !description.trim()) {
+          if (!title.trim() || !description.trim() || !date.trim()) {
             alert("Preencha todos os campos");
-            setTitle("");
-            setDescription("");
-            setDate("");
             return;
           }
           onAddTaskSubmit(title, description, date);
