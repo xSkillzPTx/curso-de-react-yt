@@ -4,6 +4,7 @@ import Input from "./Input.jsx";
 function AddTask({ onAddTaskSubmit }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [date, setDate] = useState("");
 
   return (
     <div className="space-y-4 p-6 bg-slate-200 rounded-md shadow flex flex-col">
@@ -20,17 +21,27 @@ function AddTask({ onAddTaskSubmit }) {
         value={description}
         onChange={(event) => setDescription(event.target.value)}
       />
+
+      <Input
+        type="date"
+        placeholder="Digite a data da tarefa"
+        value={date}
+        onChange={(event) => setDate(event.target.value)}
+      />
+
       <button
         onClick={() => {
           if (!title.trim() || !description.trim()) {
             alert("Preencha todos os campos");
             setTitle("");
             setDescription("");
+            setDate("");
             return;
           }
-          onAddTaskSubmit(title, description);
+          onAddTaskSubmit(title, description, date);
           setTitle("");
           setDescription("");
+          setDate("");
         }}
         className="bg-slate-500 text-white px-4 py-2 rounded-md font-medium"
       >
